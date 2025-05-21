@@ -5,8 +5,12 @@ const showOverlay = ref(false);
 const showTitle = ref(false);
 const showSubtitle = ref(false);
 const showButton = ref(false);
+const showScroll = ref(false);
+const isMounted = ref(false);
 
 onMounted(() => {
+  isMounted.value = true;
+
   setTimeout(() => {
     showOverlay.value = true;
     setTimeout(() => {
@@ -15,8 +19,11 @@ onMounted(() => {
         showSubtitle.value = true;
         setTimeout(() => {
           showButton.value = true;
-        }, 700);
-      }, 600);
+          setTimeout(() => {
+            showScroll.value = true;
+          }, 700);
+        }, 500);
+      }, 400);
     }, 300);
   }, 600);
 });
@@ -26,10 +33,57 @@ onMounted(() => {
   <section
     id="hero"
     class="hero-section relative flex w-full items-center justify-center overflow-hidden"
-    style="
-      background: url(&quot;/images/hero-img.jpg&quot;) center/cover no-repeat;
-    "
+    :class="{ 'is-mounted': isMounted }"
   >
+    <!-- Облако 1 (левое верхнее) -->
+    <img
+      src="/images/cloud.svg"
+      class="animate-cloud-1 pointer-events-none absolute top-[40px] left-[20px] z-10 h-32 w-48 opacity-80 md:top-[60px] md:left-[40px] md:h-36 md:w-56 lg:top-[80px] lg:left-[60px]"
+      alt="Cloud"
+    />
+
+    <!-- Облако 2 (правое верхнее) -->
+    <img
+      src="/images/cloud.svg"
+      class="animate-cloud-2 pointer-events-none absolute top-[80px] right-[40px] z-10 h-24 w-36 opacity-70 md:top-[100px] md:right-[60px] md:h-28 md:w-44 lg:top-[120px] lg:right-[80px]"
+      alt="Cloud"
+    />
+
+    <!-- Облако 3 (левое нижнее) - скрыто на мобильных -->
+    <img
+      src="/images/cloud.svg"
+      class="animate-cloud-3 pointer-events-none absolute bottom-[140px] left-[100px] z-10 hidden h-20 w-32 opacity-60 md:block md:h-24 md:w-40 lg:bottom-[180px] lg:left-[140px]"
+      alt="Cloud"
+    />
+
+    <!-- Облако 4 (правое нижнее) - скрыто на мобильных -->
+    <img
+      src="/images/cloud.svg"
+      class="animate-cloud-2 pointer-events-none absolute right-[120px] bottom-[180px] z-10 hidden h-20 w-32 opacity-50 md:block md:h-24 md:w-40 lg:right-[160px] lg:bottom-[220px]"
+      alt="Cloud"
+    />
+
+    <!-- Логотип -->
+    <div
+      class="absolute top-4 left-4 z-20 flex items-center md:top-6 md:left-6 lg:top-8 lg:left-8"
+    >
+      <NuxtImg
+        src="/images/logo-alt-1.PNG"
+        alt="Bloom Bright Logo"
+        class="h-10 w-auto max-w-[100px] rounded-xl bg-white/80 p-1 drop-shadow-md sm:h-12 sm:max-w-[120px] md:h-14 md:max-w-[140px] lg:h-16 lg:max-w-[160px]"
+      />
+    </div>
+
+    <!-- Badge -->
+    <div
+      class="absolute top-4 right-4 z-20 md:top-6 md:right-6 lg:top-8 lg:right-8"
+    >
+      <span
+        class="animate-badge inline-block rounded-full bg-[#D95C3A] px-3 py-1 text-xs font-bold tracking-wide text-white shadow-lg sm:px-4 sm:py-1.5 sm:text-sm md:px-5 md:py-2 md:text-base"
+        >Open for 2025/26</span
+      >
+    </div>
+
     <!-- Overlay for readability -->
     <transition name="hero-fade">
       <div
@@ -39,13 +93,13 @@ onMounted(() => {
       ></div>
     </transition>
     <div
-      class="hero-content relative z-10 flex w-full flex-col items-center justify-center px-4 text-center"
+      class="hero-content relative z-10 flex w-full flex-col items-center justify-center px-4 text-center sm:px-6 md:px-8"
       style="max-width: 900px; margin: 0 auto"
     >
       <transition name="hero-fade-left">
         <h1
           v-if="showTitle"
-          class="hero-type mb-6"
+          class="hero-type mb-4"
           style="
             color: #fff;
             font-size: clamp(2rem, 7vw, 4.5rem);
@@ -57,9 +111,18 @@ onMounted(() => {
         </h1>
       </transition>
       <transition name="hero-fade-left">
+        <div v-if="showSubtitle" class="mb-4">
+          <span
+            class="hero-usp bg-opacity-80 inline-block rounded-xl bg-[#CFE3D1] px-4 py-2 text-lg font-semibold text-[#2B7A78] shadow-sm"
+            style="backdrop-filter: blur(2px)"
+            >A place where every child shines</span
+          >
+        </div>
+      </transition>
+      <transition name="hero-fade-left">
         <p
           v-if="showSubtitle"
-          class="hero-subtitle mb-8"
+          class="hero-subtitle mb-7"
           style="
             color: #f4ebd6;
             font-size: clamp(1.05rem, 3vw, 2rem);
@@ -92,7 +155,7 @@ onMounted(() => {
     <div
       class="absolute bottom-0 left-0 w-full"
       style="
-        height: 1.5rem;
+        height: 1rem;
         background: linear-gradient(
           90deg,
           #2b7a78 0%,
@@ -107,10 +170,103 @@ onMounted(() => {
 
 <style scoped>
 .hero-section {
-  min-height: 65vh;
+  background: #f4ebd6 url("/images/hero-img.jpg") center center / cover
+    no-repeat;
+  min-height: 100vh;
+  height: 100vh;
   padding-top: 5vw;
   padding-bottom: 5vw;
+  width: 100%;
 }
+
+/* Мобильные устройства (маленькие) */
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 50vh;
+    height: 50vh;
+    padding-top: 8vw;
+    padding-bottom: 8vw;
+  }
+
+  .hero-content {
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+  }
+
+  .hero-type {
+    min-height: 2rem;
+    font-size: clamp(1.2rem, 6vw, 1.8rem) !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem) !important;
+    margin-bottom: 1rem;
+  }
+
+  .hero-usp {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    padding: 0.5rem 1rem;
+  }
+
+  .hero-btn {
+    min-width: 100px;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Мобильные устройства (средние) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .hero-section {
+    min-height: 54vh;
+    height: 54vh;
+    padding-top: 7vw;
+    padding-bottom: 7vw;
+  }
+
+  .hero-content {
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+  }
+
+  .hero-type {
+    min-height: 2.5rem;
+    font-size: clamp(1.5rem, 7vw, 2.2rem) !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 4vw, 1.2rem) !important;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Планшеты */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-section {
+    min-height: 80vh;
+    height: 80vh;
+  }
+
+  .hero-content {
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+  }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+  .hero-section {
+    min-height: 120vh;
+    height: 120vh;
+  }
+
+  .hero-content {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+  }
+}
+
 .hero-content {
   padding-top: 2vw;
   padding-bottom: 2vw;
@@ -133,57 +289,71 @@ onMounted(() => {
   margin-left: auto;
   margin-right: auto;
 }
-@media (max-width: 600px) {
-  .hero-section {
-    min-height: 54vh;
-    padding-top: 7vw;
-    padding-bottom: 7vw;
+.hero-usp {
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+}
+
+@keyframes cloud-move-1 {
+  0% {
+    transform: translateY(0) translateX(0);
   }
-  .hero-content {
-    padding-top: 4vw;
-    padding-bottom: 4vw;
+  50% {
+    transform: translateY(18px) translateX(10px);
   }
-  .hero-type {
-    min-height: 2.5rem;
-    font-size: clamp(1.2rem, 7vw, 2.2rem) !important;
-  }
-  .hero-btn {
-    min-width: 120px;
-    font-size: clamp(0.95rem, 3vw, 1.1rem);
-    padding-left: clamp(0.7rem, 4vw, 1.2rem);
-    padding-right: clamp(0.7rem, 4vw, 1.2rem);
-    padding-top: clamp(0.5rem, 2vw, 0.8rem);
-    padding-bottom: clamp(0.5rem, 2vw, 0.8rem);
-  }
-  .hero-subtitle {
-    font-size: clamp(0.95rem, 4vw, 1.2rem) !important;
+  100% {
+    transform: translateY(0) translateX(0);
   }
 }
-@media (min-width: 1200px) {
-  .hero-section {
-    min-height: 100vh;
+@keyframes cloud-move-2 {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-15px) translateX(-8px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
   }
 }
-.hero-fade-up-enter-active {
-  transition:
-    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+@keyframes cloud-move-3 {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  50% {
+    transform: translateY(10px) translateX(-5px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
 }
-.hero-fade-up-leave-active {
-  transition:
-    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.animate-cloud-1 {
+  animation: cloud-move-1 9s ease-in-out infinite;
 }
-.hero-fade-up-enter-from,
-.hero-fade-up-leave-to {
-  opacity: 0;
-  transform: translateY(2rem);
+.animate-cloud-2 {
+  animation: cloud-move-2 12s ease-in-out infinite;
 }
-.hero-fade-up-enter-to,
-.hero-fade-up-leave-from {
-  opacity: 1;
-  transform: translateY(0);
+.animate-cloud-3 {
+  animation: cloud-move-3 15s ease-in-out infinite;
 }
+@keyframes badge-pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.animate-badge {
+  animation: badge-pop 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Анимации */
 .hero-fade-enter-active {
   transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
