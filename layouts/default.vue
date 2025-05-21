@@ -2,8 +2,10 @@
 
 <template>
   <div>
-    <main class="min-h-dvh w-full bg-teal-900 text-white">
+    <LayoutHeader />
+    <main class="container mx-auto min-h-dvh w-full">
       <slot />
     </main>
+    <LayoutFooter />
   </div>
 </template>
