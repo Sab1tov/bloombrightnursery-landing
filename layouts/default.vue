@@ -3,7 +3,7 @@
 <template>
   <div>
     <LayoutHeader />
-    <main class="container mx-auto min-h-dvh w-full">
+    <main class="">
       <slot />
     </main>
     <LayoutFooter />
