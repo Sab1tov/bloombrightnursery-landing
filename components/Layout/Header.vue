@@ -64,7 +64,7 @@ const scrollTo = (id: string) => {
       <transition name="fade">
         <ul
           v-if="isMenuOpen"
-          class="animate-fade-in absolute top-full left-0 z-10 flex w-full flex-col gap-4 bg-white p-6 shadow-lg md:hidden"
+          class="animate-fade-in absolute top-full left-0 z-100 flex w-full flex-col gap-4 bg-white p-6 shadow-lg md:hidden"
         >
           <li>
             <NuxtLink class="cursor-pointer" @click="scrollTo('about')">
