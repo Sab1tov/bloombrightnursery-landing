@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { onMounted, ref } from "vue";
 
 const showOverlay = ref(false);
 const showTitle = ref(false);
@@ -35,34 +35,6 @@ onMounted(() => {
     class="hero-section relative flex w-full items-center justify-center overflow-hidden"
     :class="{ 'is-mounted': isMounted }"
   >
-    <!-- Облако 1 (левое верхнее) -->
-    <img
-      src="/images/cloud.svg"
-      class="animate-cloud-1 pointer-events-none absolute top-[40px] left-[20px] z-10 h-32 w-48 opacity-80 md:top-[60px] md:left-[40px] md:h-36 md:w-56 lg:top-[80px] lg:left-[60px]"
-      alt="Cloud"
-    />
-
-    <!-- Облако 2 (правое верхнее) -->
-    <img
-      src="/images/cloud.svg"
-      class="animate-cloud-2 pointer-events-none absolute top-[80px] right-[40px] z-10 h-24 w-36 opacity-70 md:top-[100px] md:right-[60px] md:h-28 md:w-44 lg:top-[120px] lg:right-[80px]"
-      alt="Cloud"
-    />
-
-    <!-- Облако 3 (левое нижнее) - скрыто на мобильных -->
-    <img
-      src="/images/cloud.svg"
-      class="animate-cloud-3 pointer-events-none absolute bottom-[140px] left-[100px] z-10 hidden h-20 w-32 opacity-60 md:block md:h-24 md:w-40 lg:bottom-[180px] lg:left-[140px]"
-      alt="Cloud"
-    />
-
-    <!-- Облако 4 (правое нижнее) - скрыто на мобильных -->
-    <img
-      src="/images/cloud.svg"
-      class="animate-cloud-2 pointer-events-none absolute right-[120px] bottom-[180px] z-10 hidden h-20 w-32 opacity-50 md:block md:h-24 md:w-40 lg:right-[160px] lg:bottom-[220px]"
-      alt="Cloud"
-    />
-
     <!-- Логотип -->
     <div
       class="absolute top-4 left-4 z-20 flex items-center md:top-6 md:left-6 lg:top-8 lg:left-8"
@@ -89,7 +61,7 @@ onMounted(() => {
       <div
         v-if="showOverlay"
         class="absolute inset-0"
-        style="background: rgba(43, 122, 120, 0.45)"
+        style="background: rgba(167, 215, 197, 0.45)"
       ></div>
     </transition>
     <div
@@ -104,7 +76,7 @@ onMounted(() => {
             color: #fff;
             font-size: clamp(2rem, 7vw, 4.5rem);
             font-weight: 900;
-            text-shadow: 0 2px 16px rgba(43, 122, 120, 0.25);
+            text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
           "
         >
           Welcome to <span style="color: #d95c3a">Bloom Bright</span>
@@ -113,7 +85,7 @@ onMounted(() => {
       <transition name="hero-fade-left">
         <div v-if="showSubtitle" class="mb-4">
           <span
-            class="hero-usp bg-opacity-80 inline-block rounded-xl bg-[#CFE3D1] px-4 py-2 text-lg font-semibold text-[#2B7A78] shadow-sm"
+            class="hero-usp bg-opacity-80 inline-block rounded-xl bg-[#e3f6ed] px-4 py-2 text-lg font-semibold text-black shadow-sm"
             style="backdrop-filter: blur(2px)"
             >A place where every child shines</span
           >
@@ -124,13 +96,13 @@ onMounted(() => {
           v-if="showSubtitle"
           class="hero-subtitle mb-7"
           style="
-            color: #f4ebd6;
+            color: #fff;
             font-size: clamp(1.05rem, 3vw, 2rem);
             font-weight: 500;
-            text-shadow: 0 2px 12px rgba(43, 122, 120, 0.18);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
           "
         >
-          Montessori-inspired kindergarten where every child blossoms with care,
+          Montessori-inspired nursery where every child blossoms with care,
           creativity, and confidence.
         </p>
       </transition>
@@ -158,8 +130,8 @@ onMounted(() => {
         height: 1rem;
         background: linear-gradient(
           90deg,
-          #2b7a78 0%,
-          #cfe3d1 50%,
+          #a7d7c5 0%,
+          #e3f6ed 50%,
           #d95c3a 100%
         );
         opacity: 0.7;

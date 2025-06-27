@@ -29,7 +29,7 @@ function closeModal() {
 <template>
   <section id="gallery" class="bg-[#d6dde4] py-12">
     <div class="container mx-auto w-full p-4 text-center">
-      <h2 class="mb-6 text-2xl font-bold text-[#2b7a78]">Gallery</h2>
+      <h2 class="mb-6 text-2xl font-bold text-black">Gallery</h2>
       <TransitionGroup
         name="gallery-fade"
         tag="div"
@@ -51,7 +51,7 @@ function closeModal() {
       </TransitionGroup>
       <button
         v-if="images.length > 6"
-        class="mt-6 rounded-md bg-[#2b7a78] px-4 py-2 font-semibold text-white transition hover:bg-[#205e5a]"
+        class="mt-6 rounded-md bg-black px-4 py-2 font-semibold text-white transition hover:bg-gray-800"
         @click="toggleShowAll"
       >
         {{ showAll ? "Show Less" : "Show More" }}
@@ -68,7 +68,7 @@ function closeModal() {
           >
             <NuxtImg :src="selectedImage || ''" class="aspect-3/2 rounded-lg" />
             <button
-              class="absolute top-4 right-4 text-3xl text-gray-300 hover:text-[#2b7a78]"
+              class="absolute top-4 right-4 text-3xl text-white hover:text-black"
               @click="closeModal"
             >
               <Icon name="i-lucide-x" />

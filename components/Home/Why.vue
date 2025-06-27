@@ -9,7 +9,7 @@ const reasons = [
     description:
       "Children are gently encouraged to do things on their own, at their own pace. That builds real confidence.",
     icon: "i-heroicons-academic-cap",
-    color: "#2B7A78",
+    color: "#a7d7c5",
     image: "/images/image3.jpg",
   },
   {
@@ -36,7 +36,7 @@ const reasons = [
     description:
       "No time-outs, no fear-based discipline — just gentle guidance and clear, respectful boundaries.",
     icon: "i-heroicons-sun",
-    color: "#2B7A78",
+    color: "#a7d7c5",
     image: "/images/image11.jpg",
   },
   {
@@ -89,11 +89,11 @@ onMounted(() => {
 <template>
   <section
     id="why"
-    class="relative overflow-hidden bg-gradient-to-br from-[#f4ecd6] via-[#e3f0e6] to-[#cfe3d1] py-10 sm:py-16 md:py-24"
+    class="relative overflow-hidden bg-gradient-to-br from-[#f4ecd6] via-[#e3f6ed] to-[#a7d7c5] py-10 sm:py-16 md:py-24"
   >
     <!-- SVG/Blurred Background Spots -->
     <div
-      class="pointer-events-none absolute -top-32 left-1/2 z-0 h-80 w-80 -translate-x-1/2 rounded-full bg-[#2B7A78]/10 blur-3xl"
+      class="pointer-events-none absolute -top-32 left-1/2 z-0 h-80 w-80 -translate-x-1/2 rounded-full bg-[#a7d7c5]/10 blur-3xl"
     ></div>
     <div
       class="pointer-events-none absolute right-0 bottom-0 z-0 h-60 w-60 translate-x-1/3 translate-y-1/3 rounded-full bg-[#D95C3A]/10 blur-2xl"
@@ -105,7 +105,7 @@ onMounted(() => {
     <div class="relative z-10 container mx-auto px-2 sm:px-4 md:px-8">
       <div class="mb-14 text-center">
         <h2
-          class="relative mb-4 inline-block text-2xl font-extrabold tracking-tight text-[#2B7A78] sm:text-3xl md:text-4xl lg:text-5xl"
+          class="relative mb-4 inline-block text-2xl font-extrabold tracking-tight text-black sm:text-3xl md:text-4xl lg:text-5xl"
         >
           Why Choose Bloom Bright?
           <span
@@ -113,7 +113,7 @@ onMounted(() => {
           ></span>
         </h2>
         <p
-          class="mx-auto mt-4 max-w-2xl text-base text-[#444] sm:text-lg md:text-xl"
+          class="mx-auto mt-4 max-w-2xl text-base text-black sm:text-lg md:text-xl"
         >
           We provide more than just childcare — we nurture minds, inspire
           creativity, and build foundations for lifelong learning in a safe,
@@ -141,15 +141,15 @@ onMounted(() => {
           </div>
           <div class="relative flex-1">
             <div
-              class="absolute top-3 left-0 h-6 w-1 rounded-full bg-[#2B7A78] opacity-60 sm:top-4 sm:h-7 md:top-5 md:h-8"
+              class="absolute top-3 left-0 h-6 w-1 rounded-full bg-[#a7d7c5] opacity-60 sm:top-4 sm:h-7 md:top-5 md:h-8"
             ></div>
             <h3
-              class="relative z-10 mb-1 pl-4 text-lg leading-tight font-extrabold text-[#2B7A78] sm:text-xl md:mb-2 md:text-2xl"
+              class="relative z-10 mb-1 pl-4 text-lg leading-tight font-extrabold text-black sm:text-xl md:mb-2 md:text-2xl"
             >
               {{ reason.title }}
             </h3>
             <p
-              class="relative z-10 pl-4 text-base leading-relaxed text-[#333] sm:text-lg md:text-xl"
+              class="relative z-10 pl-4 text-base leading-relaxed text-black sm:text-lg md:text-xl"
             >
               {{ reason.description }}
             </p>
@@ -164,10 +164,8 @@ onMounted(() => {
         <div
           class="w-full max-w-xl transform rounded-2xl border-l-4 border-[#2B7A78] bg-white/80 p-4 shadow-xl shadow-[#2B7A78]/10 backdrop-blur-md transition-all duration-300 hover:shadow-2xl sm:max-w-2xl sm:p-6 md:max-w-3xl md:p-8"
         >
-          <p
-            class="mb-2 text-base font-semibold text-[#333] sm:mb-4 sm:text-lg"
-          >
-            Ready to see our kindergarten in action?
+          <p class="mb-2 text-base font-semibold text-black sm:mb-4 sm:text-lg">
+            Ready to see our nursery in action?
           </p>
           <a
             href="#contacts"

@@ -34,18 +34,24 @@ const scrollTo = (id: string) => {
     <nav>
       <ul class="hidden gap-8 md:flex">
         <li>
-          <NuxtLink class="cursor-pointer truncate" @click="scrollTo('about')">
+          <NuxtLink
+            class="cursor-pointer truncate text-black"
+            @click="scrollTo('about')"
+          >
             About
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink class="cursor-pointer truncate" @click="scrollTo('why')">
+          <NuxtLink
+            class="cursor-pointer truncate text-black"
+            @click="scrollTo('why')"
+          >
             Why Choose Us
           </NuxtLink>
         </li>
         <li>
           <NuxtLink
-            class="cursor-pointer truncate"
+            class="cursor-pointer truncate text-black"
             @click="scrollTo('gallery')"
           >
             Gallery
@@ -53,7 +59,7 @@ const scrollTo = (id: string) => {
         </li>
         <li>
           <NuxtLink
-            class="cursor-pointer truncate"
+            class="cursor-pointer truncate text-black"
             @click="scrollTo('contacts')"
           >
             Contact
@@ -67,22 +73,34 @@ const scrollTo = (id: string) => {
           class="animate-fade-in absolute top-full left-0 z-100 flex w-full flex-col gap-4 bg-white p-6 shadow-lg md:hidden"
         >
           <li>
-            <NuxtLink class="cursor-pointer" @click="scrollTo('about')">
+            <NuxtLink
+              class="cursor-pointer text-black"
+              @click="scrollTo('about')"
+            >
               About
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink class="cursor-pointer" @click="scrollTo('why')">
+            <NuxtLink
+              class="cursor-pointer text-black"
+              @click="scrollTo('why')"
+            >
               Why Choose Us
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink class="cursor-pointer" @click="scrollTo('gallery')">
+            <NuxtLink
+              class="cursor-pointer text-black"
+              @click="scrollTo('gallery')"
+            >
               Gallery
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink class="cursor-pointer" @click="scrollTo('contacts')">
+            <NuxtLink
+              class="cursor-pointer text-black"
+              @click="scrollTo('contacts')"
+            >
               Contact
             </NuxtLink>
           </li>

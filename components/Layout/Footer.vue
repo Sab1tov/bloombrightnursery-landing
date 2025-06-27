@@ -5,7 +5,7 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <footer class="bg-[#f4ebd6]">
+  <footer class="bg-[#f4ebd6] text-black">
     <div class="container mx-auto flex items-center justify-between p-4">
       <nav class="w-full py-8 md:py-4">
         <ul class="flex flex-col justify-between gap-8 md:flex-row">
@@ -17,25 +17,25 @@ const scrollToTop = () => {
 
           <li>
             <ul>
-              <strong>Address</strong>
+              <strong class="text-black">Address</strong>
 
-              <li class="underline">UAE, Dubai</li>
+              <li class="text-black underline">UAE, Dubai</li>
             </ul>
           </li>
 
           <li>
             <ul>
-              <strong>Contact</strong>
+              <strong class="text-black">Contact</strong>
 
-              <li class="underline">+7 777 777 77 77</li>
-              <li class="underline">+8 888 888 88 88</li>
-              <li class="underline">+9 999 999 99 99</li>
+              <li class="text-black underline">+7 777 777 77 77</li>
+              <li class="text-black underline">+8 888 888 88 88</li>
+              <li class="text-black underline">+9 999 999 99 99</li>
             </ul>
           </li>
 
           <li>
             <ul>
-              <strong>Socials</strong>
+              <strong class="text-black">Socials</strong>
 
               <li>
                 <NuxtLink

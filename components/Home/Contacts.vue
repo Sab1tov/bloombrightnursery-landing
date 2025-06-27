@@ -14,9 +14,7 @@
           class="mx-auto flex w-full max-w-md flex-col gap-4 rounded-lg bg-[#f4ebd6] p-6 text-left shadow-md"
         >
           <div>
-            <label
-              for="parentName"
-              class="block text-sm font-medium text-[#2b7a78]"
+            <label for="parentName" class="block text-sm font-medium text-black"
               >Parent Name</label
             >
             <input
@@ -24,11 +22,11 @@
               id="parentName"
               name="parentName"
               required
-              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-gray-900 focus:border-[#2b7a78] focus:ring-[#2b7a78]"
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-black focus:border-black focus:ring-black"
             />
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-[#2b7a78]"
+            <label for="email" class="block text-sm font-medium text-black"
               >Email</label
             >
             <input
@@ -36,11 +34,11 @@
               id="email"
               name="email"
               required
-              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-gray-900 focus:border-[#2b7a78] focus:ring-[#2b7a78]"
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-black focus:border-black focus:ring-black"
             />
           </div>
           <div>
-            <label for="phone" class="block text-sm font-medium text-[#2b7a78]"
+            <label for="phone" class="block text-sm font-medium text-black"
               >Phone Number</label
             >
             <input
@@ -48,13 +46,11 @@
               id="phone"
               name="phone"
               required
-              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-gray-900 focus:border-[#2b7a78] focus:ring-[#2b7a78]"
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-black focus:border-black focus:ring-black"
             />
           </div>
           <div>
-            <label
-              for="childName"
-              class="block text-sm font-medium text-[#2b7a78]"
+            <label for="childName" class="block text-sm font-medium text-black"
               >Child Name</label
             >
             <input
@@ -62,13 +58,11 @@
               id="childName"
               name="childName"
               required
-              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-gray-900 focus:border-[#2b7a78] focus:ring-[#2b7a78]"
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-black focus:border-black focus:ring-black"
             />
           </div>
           <div>
-            <label
-              for="childAge"
-              class="block text-sm font-medium text-[#2b7a78]"
+            <label for="childAge" class="block text-sm font-medium text-black"
               >Child Age</label
             >
             <input
@@ -77,12 +71,12 @@
               name="childAge"
               min="0"
               required
-              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-gray-900 focus:border-[#2b7a78] focus:ring-[#2b7a78]"
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2 text-black focus:border-black focus:ring-black"
             />
           </div>
           <button
             type="submit"
-            class="mt-4 rounded-md bg-[#2b7a78] px-4 py-2 font-semibold text-white transition-colors hover:bg-[#3a9a98]"
+            class="mt-4 rounded-md bg-black px-4 py-2 font-semibold text-white transition-colors hover:bg-gray-800"
           >
             Submit
           </button>
